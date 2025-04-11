@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patronato Zacualpan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f4f8;
+      color: #333;
+    }
+    header {
+      background-color: #002147;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+    }
+    .portada {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+    }
+    .frase {
+      font-size: 1.5rem;
+      font-weight: bold;
+      animation: fade 3s infinite;
+    }
+    .color-amarillo { color: #f4c430; }
+    .color-blanco   { color: #ffffff; }
+    .color-verde    { color: #00cc66; }
+
+    @keyframes fade {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    .botones {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: #003366;
+      flex-wrap: wrap;
+    }
+    .botones button {
+      background-color: #f4c430;
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .fondo-voluntarios {
+      background-image: url('https://github.com/manuelstaz/proteccion-civil-zacualpan/blob/main/regalo%20a%20voluntarios%20de%20pc.jpg?raw=true');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 100%;
+      height: 300px;
+      position: relative;
+    }
+
+    .contenedor-voluntarios {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .agradecimiento-voluntarios {
+      background: linear-gradient(to right, #002147, #f4c430);
+      padding: 2rem;
+      text-align: center;
+      color: white;
+    }
+
+    .mensaje-voluntario {
+      font-family: 'Raleway', sans-serif;
+      font-size: 1.8rem;
+      font-weight: bold;
+      animation: entrarTexto 2s ease-in-out;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    @keyframes entrarTexto {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .seccion {
+      display: none;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+    }
+    .seccion h2 {
+      color: #002147;
+    }
+    .activo {
+      display: block;
+    }
+
+    #formLogin input, #formLogin select {
+      display: block;
+      margin: 1rem 0;
+      padding: 0.5rem;
+      width: 100%;
+      max-width: 400px;
+    }
+    .error {
+      color: red;
+    }
+    .ver-clave {
+      margin-left: 0.5rem;
+      cursor: pointer;
+      color: #002147;
+      font-size: 0.9rem;
+    }
+    .btn-subir {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .btn-subir button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background-color: #002147;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <img class="portada" src="https://github.com/manuelstaz/proteccion-civil-zacualpan/blob/main/portada%20voluntarios%20de%20pc.jpeg?raw=true" alt="Portada Patronato Zacualpan">
+
+  <header>
+    <h1>Patronato Zacualpan Pro-equipamiento de Protección Civil</h1>
+    <div class="frase" id="fraseMotivadora"></div>
+    <h1>Nuestra jurisdicción de voluntarios abarca desde Playa Platanitos hasta Las Varas Nayarit... ¡GRACIAS!</h1>
+  </header>
+
+  <div class="botones">
+    <button onclick="mostrarSeccion('quienes')">¿QUIÉNES SOMOS?</button>
+    <button onclick="mostrarLogin()">MESA DIRECTIVA</button>
+    <button onclick="mostrarSeccion('donador')">HAZTE DONADOR DE UN PESO POR DÍA</button>
+  </div>
+
+  <div class="fondo-voluntarios">
+    <div class="contenedor-voluntarios"></div>
+  </div>
+
+  <section class="agradecimiento-voluntarios">
+    <h2 class="mensaje-voluntario">“Un regalo de un niño, es una herencia de unión para el futuro.”</h2>
+  </section>
+
+  <section id="quienes" class="seccion">
+    <h2>¿Quiénes somos?</h2>
+    <p>Somos un grupo de voluntarios que decidimos unirnos a la causa de Protección Civil Zacualpan...</p>
+    <h2>Misión</h2>
+    <p>Unirnos para recaudar fondos voluntarios de al menos un peso por día para equipar a los rescatistas.</p>
+    <h2>Visión</h2>
+    <p>Un Zacualpan unido y preparado ante la adversidad.</p>
+    <h2>Valores</h2>
+    <ul>
+      <li>Ética profesional</li>
+      <li>Empatía</li>
+      <li>Diversidad</li>
+      <li>Honestidad</li>
+      <li>Responsabilidad</li>
+    </ul>
+    <div class="btn-subir">
+      <button onclick="irAlInicio()">⬆️ IR A INICIO</button>
+    </div>
+  </section>
+
+  <section id="loginMesa" class="seccion">
+    <h2>Acceso Mesa Directiva</h2>
+    <form id="formLogin" onsubmit="return validarLogin(event)">
+      <label>Rol:</label>
+      <select id="rol">
+        <option value="presidente">Presidente</option>
+        <option value="tesorera">Tesorera</option>
+        <option value="secretario">Secretario</option>
+        <option value="vocal1">Vocal 1</option>
+        <option value="vocal2">Vocal 2</option>
+      </select>
+      <label>Contraseña:</label>
+      <input type="password" id="clave" placeholder="Ingresa tu contraseña">
+      <span class="ver-clave" onclick="toggleClave()">👁 Mostrar</span>
+      <button type="submit">Ingresar</button>
+      <p id="mensajeError" class="error"></p>
+    </form>
+    <div class="btn-subir">
+      <button onclick="irAlInicio()">⬆️ IR A INICIO</button>
+    </div>
+  </section>
+
+  <section id="mesa" class="seccion">
+    <h2>Panel Privado de Mesa Directiva</h2>
+    <p>Bienvenido. Aquí verás los controles de ingresos, egresos y estado de donadores.</p>
+  </section>
+
+  <section id="donador" class="seccion">
+  <h2>Hazte Donador</h2>
+  <form id="formDonador">
+    <label>Nombre completo:</label>
+    <input type="text" id="nombre" required>
+    <label>Teléfono:</label>
+    <input type="tel" id="telefono" required>
+    <label>Población:</label>
+    <input type="text" id="poblacion" required>
+    <label>Cantidad entregada ($):</label>
+    <input type="number" id="cantidad" min="1" required>
+    <button type="submit">Registrar Donación</button>
+    <p id="respuestaDonador" style="color: green; font-weight: bold;"></p>
+  </form>
+  <div class="btn-subir">
+    <button onclick="irAlInicio()">⬆️ IR A INICIO</button>
+  </div>
+</section>
+
+  <script>
+    const frases = [
+      { texto: "Tu apoyo equipa a nuestros héroes voluntarios", color: "color-amarillo" },
+      { texto: "Un pueblo unido es un pueblo fuerte", color: "color-blanco" },
+      { texto: "Cada peso cuenta para salvar vidas", color: "color-verde" }
+    ];
+    let fraseIndex = 0;
+    function actualizarFrase() {
+      const fraseEl = document.getElementById('fraseMotivadora');
+      fraseEl.textContent = frases[fraseIndex].texto;
+      fraseEl.className = 'frase ' + frases[fraseIndex].color;
+      fraseIndex = (fraseIndex + 1) % frases.length;
+    }
+    actualizarFrase();
+    setInterval(actualizarFrase, 3000);
+
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.seccion').forEach(s => s.classList.remove('activo'));
+      const seccion = document.getElementById(id);
+      seccion.classList.add('activo');
+      seccion.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function mostrarLogin() {
+      mostrarSeccion('loginMesa');
+    }
+
+    const contraseñas = {
+      presidente: "zacualpan01",
+      tesorera: "zacualpan02",
+      secretario: "zacualpan03",
+      vocal1: "zacualpan04",
+      vocal2: "zacualpan05"
+    };
+
+    function validarLogin(event) {
+      event.preventDefault();
+      const rol = document.getElementById("rol").value;
+      const clave = document.getElementById("clave").value;
+      const mensaje = document.getElementById("mensajeError");
+
+      if (contraseñas[rol] === clave) {
+        mensaje.textContent = "";
+        mostrarSeccion("mesa");
+      } else {
+        mensaje.textContent = "❌ Contraseña incorrecta.";
+      }
+    }
+
+    function toggleClave() {
+      const input = document.getElementById("clave");
+      input.type = input.type === "password" ? "text" : "password";
+    }
+
+    function irAlInicio() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.addEventListener('click', function(e) {
+      const activo = document.querySelector('.seccion.activo');
+      if (activo && !activo.contains(e.target) && !e.target.closest('.botones')) {
+        activo.classList.remove('activo');
+      }
+    });
+  const URL_SCRIPT = "https://script.google.com/macros/s/AKfycbzZJrIjEdfdyg3O6skfoONsVltb__xJb78XPV-Icq7fKN0mJxvB8FFiP217DT3vz6d6/exec";
+
+document.getElementById("formDonador").addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const nombre = document.getElementById("nombre").value.trim();
+  const telefono = document.getElementById("telefono").value.trim();
+  const poblacion = document.getElementById("poblacion").value.trim();
+  const cantidad = parseFloat(document.getElementById("cantidad").value.trim());
+
+  const respuesta = document.getElementById("respuestaDonador");
+
+  try {
+    const res = await fetch(URL_SCRIPT, {
+      method: "POST",
+      body: JSON.stringify({ nombre, telefono, poblacion, cantidad }),
+      headers: { "Content-Type": "application/json" }
+    });
+
+    const data = await res.json();
+
+    if (data.exito) {
+      respuesta.textContent = `✅ Donación registrada con éxito. Folio: ${data.folio}`;
+      document.getElementById("formDonador").reset();
+    } else {
+      respuesta.textContent = "❌ Error al registrar. Intenta de nuevo.";
+    }
+  } catch (error) {
+    console.error("Error:", error);
+    respuesta.textContent = "❌ No se pudo conectar con el servidor.";
+  }
+});
+</script>
+</body>
+</html>
